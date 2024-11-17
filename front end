@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="logo">
+        </header>
+        <main>
+            <form action="https://www.google.com/search" method="get" class="search-form">
+                <input type="text" name="q" class="search-input" placeholder="Google'da ara..." required>
+                <div class="buttons">
+                    <button type="submit" class="search-btn">Ara</button>
+                    <button type="button" class="lucky-btn" onclick="imFeelingLucky()">I'm Feeling Lucky</button>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+header .logo {
+    width: 272px;
+    height: 92px;
+    margin-bottom: 50px;
+}
+
+.search-form {
+    display: inline-block;
+    width: 500px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 24px;
+    border: 1px solid #dcdcdc;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-btn, .lucky-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #dcdcdc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+    background-color: #f1f1f1;
+}
+
+.lucky-btn {
+    background-color: #f0f0f0;
+    color: #1a73e8;
+}
+
+.lucky-btn:hover {
+    background-color: #e8f0fe;
+}
+
+.lucky-btn:active {
+    background-color: #d2e3fc;
+}
+
+function imFeelingLucky() {
+    const query = document.querySelector('.search-input').value;
+    if (query) {
+        window.location.href = `https://www.google.com/search?q=${query}&btnI`;
+    }
+}
